@@ -16,14 +16,10 @@ def combien(seq, enzyme) :
 def ou(seq, enzyme):
     n = len(seq)
     m = len(enzyme)
-    print("n,m", n, m)
     matches = []
-
-    for i in range(n-m):
+    for i in range(n-m+1):
         if seq[i: i+m] == enzyme:
-            print("i+m", i+m, " seq", seq)
             matches.append(i)
-    print(" ")
 
     return formatresult(matches)
 
@@ -46,3 +42,4 @@ def print_seq(sequence, enzyme):
 
 enzyme = "GTTAAC"
 print_seq(sequence, enzyme)
+print_seq(sequence, "ACGT")
