@@ -5,8 +5,7 @@ lines = []
 with open("res.txt", "r") as f:
     lines = f.readlines()
 f.close()
-
-
+1
 SEPARATOR = " "
 
 
