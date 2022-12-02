@@ -9,6 +9,8 @@ def formatresult(liste):
     return ", ".join(texte)
 
 
+
+
 def combien(seq, enzyme) :
     nbr = seq.count(enzyme)
     return nbr
