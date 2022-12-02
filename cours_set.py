@@ -1,16 +1,13 @@
-listdbl = [2, 2, 3]
+def intro():
+    listdbl = [2, 2, 3]
+    l = ["2", "3", "4"]
+    s = set()
 
-l = ["2", "3", "4"]
+    for el in listdbl:
+        print(f"adding {el} to set: {s}")
+        s.add(el)
+        print(f"set={s}\n")
 
-s = set()
-
-for el in listdbl:
-    print(f"adding {el} to set: {s}")
-    s.add(el)
-    print(f"set={s}\n")
+    print(",".join(l))  # pas faire ",".join(listdbl) car c'est pas une liste de string (str) !
 
 
-
-print(",".join(l))
-
-# pas faire ",".join(listdbl) car c'est pas une liste de string (str) !
