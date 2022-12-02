@@ -1,7 +1,7 @@
 #enzyme = "GTTAAC"
 #seq = "ACGTTAACCGTTAACAATTC"
 
-with open('ListeSequences.txt','r', encoding='utf-8') as f :
+with open('res/ListeSequences.txt','r', encoding='utf-8') as f :
     sequence=f.readlines()
 
 def formatresult(liste):

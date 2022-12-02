@@ -32,7 +32,7 @@ def get_month(matrix, month_column_idx, month_number, to_extract_idx):
     
 
 def moyenne_col(matrix, j, month_column_idx, month_number):
-    col = getcolumn(j)
+    col = getcolumn(matrix, j)
     col_asfloat = [float(col[i]) for i in range(len(col)) if matrix[i][month_column_idx] == month_number]
 
     #

@@ -2,10 +2,10 @@ LINE_ENDING = "\n"
 
 lines = []
 
-with open("res.txt", "r") as f:
+with open("res/meteo.txt", "r") as f:
     lines = f.readlines()
 f.close()
-1
+
 SEPARATOR = " "
 
 
