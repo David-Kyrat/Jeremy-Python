@@ -1,5 +1,3 @@
-
-
 wd = ["lundi", "mardi", "mercredi", "jeudi", "vendredi"]
 
 hs = ["hs_l", "hs_m", "hs_me", "hs_j", "hs_v"]
