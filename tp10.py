@@ -25,17 +25,16 @@ def histoMult(sequences):
 def histoNorm(sequences):
     dico = {}
     joinseq = "".join(sequences)
-    lseq = list(joinseq)
     sseq = set(joinseq)
-    longseq = len(lseq)
+    toIgnore = ["\n", " ", "_", "-"]     # compte plus les "\n" retour à la ligne, espaces etc...
+    for char in toIgnore:
+        sseq.discard(char)
+
     for aa in sseq:
-        dico[aa] = round(lseq.count(aa) / longseq, 3)  # round pour arrondir avec n chiffre après la virgule
+        dico[aa] = joinseq.count(aa)
     return dico
 
-
 # print(histoNorm(["MDSDA","ASQMA","MASP"]))
-
-
 def readFile(fileName):
     with open(fileName) as f:
         content = f.read()
@@ -49,7 +48,8 @@ def readFile(fileName):
 #
 
 def extract_dict(file_name):
-    entries = readFile(file_name).split(">")[1:]
+    entries = readFile(file_name).split(">")#[1:]
+    entries.pop(0)
     dico = {}
 
     for entry in entries:
@@ -69,30 +69,20 @@ def extract_dict(file_name):
 
     return dico
 
-
-"""
-file_name = "mini.fasta"
-dico = extract_dict(file_name)
-
-for key, value in dico.items(): #pour avoir des paires et itérer dessus
-    print("{"+f"{key}:\n\t{value[0]}") #f{key} pour print ce qu'il y a dans les {}, et faire avec dico.items
-    print(f"\t{value[1]}")
-print("")
-"""
-
-
-# print(extract_dict("mini.fasta"))
-
-
 def dicoHisto(fasta_filename):
     histo = {}
     dico = extract_dict(fasta_filename)
     for k, v in dico.items():
         freq = histoNorm(v[1])
-        name = v[0]
-        histo[name] = freq
-
+        histo[k] = v[0], freq
     return histo
 
 
-print(dicoHisto("uniprot_entries.fasta"))
+if __name__ == '__main__':
+    miniFile, bigFile = "./res/mini.fasta", "./res/uniprot_entries.fasta"
+    hist = dicoHisto(bigFile)
+    for k, v in hist.items():
+        print(k)
+        print("\t", v)
+        print("")
+
