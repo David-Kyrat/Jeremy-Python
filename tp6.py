@@ -30,10 +30,12 @@ def extract_dict(file_name):
 
     return dico
 
+
+
 if __name__ == '__main__':
     file_name = "res/mini.fasta"
     dico = extract_dict(file_name)
-    
+
     for key, value in dico.items():
         print("{"+f"{key}:\n\t{value[0]}")
         print(f"\t{value[1]}")
